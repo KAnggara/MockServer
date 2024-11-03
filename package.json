@@ -1,0 +1,61 @@
+{
+	"name": "nodets",
+	"main": "app.ts",
+	"type": "module",
+	"license": "MIT",
+	"version": "1.0.0",
+	"author": "KAnggara75",
+	"description": "Node with TS lang Template",
+	"homepage": "https://github.com/IDScript/NodeTS#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/IDScript/NodeTS.git"
+	},
+	"bugs": {
+		"url": "https://github.com/IDScript/NodeTS/issues"
+	},
+	"scripts": {
+		"start": "node dist/app.js",
+		"seed": "pnpm prisma db seed",
+		"build": "rm -rf dist && tsc && tsc-alias",
+		"dev": "nodemon --signal SIGHUP src/app.ts",
+		"test": "jest -i --detectOpenHandles --runInBand",
+		"mig": "rm -rf prisma/migrations && pnpm prisma generate && pnpm prisma migrate dev --name init",
+		"fc": "pnpm prettier --write . && pnpm eslint --fix . && pnpm prettier --check . && pnpm eslint ."
+	},
+	"prisma": {
+		"seed": "tsx src/database/seed/seeder.ts"
+	},
+	"dependencies": {
+		"@prisma/client": "^5.21.1",
+		"compression": "^1.7.5",
+		"cors": "^2.8.5",
+		"dotenv": "^16.4.5",
+		"express": "^4.21.1",
+		"helmet": "^8.0.0",
+		"pino": "^9.5.0",
+		"pino-http": "^10.3.0"
+	},
+	"devDependencies": {
+		"@babel/preset-env": "^7.26.0",
+		"@babel/preset-typescript": "^7.26.0",
+		"@eslint/js": "^9.14.0",
+		"@jest/globals": "^29.7.0",
+		"@types/compression": "^1.7.5",
+		"@types/cors": "^2.8.17",
+		"@types/eslint__js": "^8.42.3",
+		"@types/express": "^5.0.0",
+		"@types/jest": "^29.5.14",
+		"@types/node": "^22.8.6",
+		"babel-jest": "^29.7.0",
+		"globals": "^15.11.0",
+		"jest": "^29.7.0",
+		"prettier": "^3.3.3",
+		"prisma": "^5.21.1",
+		"ts-jest": "^29.2.5",
+		"tsc-alias": "^1.8.10",
+		"tsx": "^4.19.2",
+		"typescript": "^5.6.3",
+		"typescript-eslint": "^8.12.2"
+	}
+}

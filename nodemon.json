@@ -1,0 +1,17 @@
+{
+	"events": {
+		"start": "clear"
+	},
+	"ignore": [
+		"*auth*",
+		"*.test.*",
+		"**/*.log",
+		"WAResponse*",
+		"**/logs/**/*",
+		"**/database/**/*"
+	],
+	"execMap": {
+		"ts": "tsx"
+	},
+	"delay": 2500
+}
